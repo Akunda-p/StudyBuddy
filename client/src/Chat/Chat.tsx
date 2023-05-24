@@ -209,6 +209,7 @@ export default function Chat() {
                                 ))}
                             </div>
                         </Paper>
+                        <div style={{marginTop: "5vh"}}>
                         <Paper elevation={24}>
                         <TextField
                             id="msg"
@@ -217,9 +218,10 @@ export default function Chat() {
                             value={msg}
                             label="Type Message Here"
                             fullWidth
-                            sx={{ marginTop: "5vh", borderRadius: 1, border: 1 }}
+                            sx={{ borderRadius: 1, border: 1 }}
                         />
                         </Paper>
+                        </div>
                     </div>
                     : <div><Button variant="contained"
                         sx={{ width: 100 }}
