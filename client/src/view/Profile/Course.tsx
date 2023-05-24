@@ -57,7 +57,7 @@ export default function Course(props: ICourseProps) {
   useEffect(() => {
     const fetchData = async () => {
       const token = await getAccessTokenSilently()
-      axios.get('http://localhost:8080/courses', { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } }).then((res) => {
+      axios.get('https://studybuddy-production.up.railway.app/courses', { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } }).then((res) => {
         const dbCourseValidate = Joi.array().items(
           Joi.object<ICourse>({
             course_code: Joi.string().required(),

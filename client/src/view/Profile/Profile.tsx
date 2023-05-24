@@ -129,7 +129,7 @@ export default function Profile() {
       if (user && isAuthenticated) {
         // setUserProfile;
         const token = await getAccessTokenSilently()
-        const resProfile = await axios.get(`http://localhost:8080/users/getprofile`, {
+        const resProfile = await axios.get(`https://studybuddy-production.up.railway.app/users/getprofile`, {
           signal: controller.signal,
           headers: { Authorization: `Bearer ${token}` }
         })
@@ -159,7 +159,7 @@ export default function Profile() {
 
           }
         
-        const resMajor = await axios.get("http://localhost:8080/major/", {
+        const resMajor = await axios.get("https://studybuddy-production.up.railway.app/major/", {
           signal: controller.signal,
           headers: { Authorization: `Bearer ${token}` }
         })
@@ -205,7 +205,7 @@ export default function Profile() {
       handleError()
     } else {
       const token = await getAccessTokenSilently()
-      await axios.patch(`http://localhost:8080/users/profile/update`, userProfile, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } }).then((res) => {
+      await axios.patch(`https://studybuddy-production.up.railway.app/users/profile/update`, userProfile, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } }).then((res) => {
         const acknowledgedValidate = Joi.boolean().required().validate(res.data.acknowledged)
         if (acknowledgedValidate.error) {
           console.log(acknowledgedValidate.error)

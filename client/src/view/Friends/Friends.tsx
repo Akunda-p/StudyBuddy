@@ -37,7 +37,7 @@ export default function Friends() {
     async function getFriends() {
         if (user) {
             const token = await getAccessTokenSilently()
-            const dbData = await axios.get(`http://localhost:8080/friends/getfriends`, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })
+            const dbData = await axios.get(`https://studybuddy-production.up.railway.app/friends/getfriends`, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })
             const dbDataValidate = Joi.array().items(
                 Joi.object<IFriend>({
                     name: Joi.string().required(),

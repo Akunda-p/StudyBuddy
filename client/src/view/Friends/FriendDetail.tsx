@@ -42,7 +42,7 @@ export default function FriendDetail() {
 
     async function getFriendDetail() {
         const token = await getAccessTokenSilently()
-        const dbData = await axios.get(`http://localhost:8080/friends/detail/${location.state.id}`, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })
+        const dbData = await axios.get(`https://studybuddy-production.up.railway.app/friends/detail/${location.state.id}`, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })
         const dbDataValidate = Joi.object<IFriendDetail>({
             name: Joi.string().required(),
             uniID: Joi.string().required(),
@@ -57,10 +57,10 @@ export default function FriendDetail() {
         } else {
             setFriendDetail(dbDataValidate.value)
         }
-        const dbStatus: string = (await axios.post('http://localhost:8080/friends/checkStatus', payload, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })).data
+        const dbStatus: string = (await axios.post('https://studybuddy-production.up.railway.app/friends/checkStatus', payload, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })).data
         setStatus(dbStatus)
 
-        const dbSelf: boolean = (await axios.post(`http://localhost:8080/friends/checkself`, payload, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })).data
+        const dbSelf: boolean = (await axios.post(`https://studybuddy-production.up.railway.app/friends/checkself`, payload, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })).data
         const dbSelfValidate = Joi.boolean().required().validate(dbSelf)
         if (dbSelfValidate.error) {
             console.error(dbSelfValidate.error)
@@ -95,7 +95,7 @@ export default function FriendDetail() {
     useEffect(() => {
         socket.on("statusChange", async () => {
             const token = await getAccessTokenSilently()
-            const dbStatus: string = (await axios.post('http://localhost:8080/friends/checkStatus', payload, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })).data
+            const dbStatus: string = (await axios.post('https://studybuddy-production.up.railway.app/friends/checkStatus', payload, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })).data
             setStatus(dbStatus)
         })
 

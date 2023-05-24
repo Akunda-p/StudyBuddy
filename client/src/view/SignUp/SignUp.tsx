@@ -83,7 +83,7 @@ export default function SignUp(props: ISignUpProps) {
 
     const apiGetMajor = async (option: IApiOptions): Promise<IMajorApiReturn | null> => {
         const token = await getAccessTokenSilently()
-        const res = await axios.get("http://localhost:8080/major/", {
+        const res = await axios.get("https://studybuddy-production.up.railway.app/major/", {
             signal: option.signal,
             headers: { Authorization: `Bearer ${token}` }
         })
@@ -169,7 +169,7 @@ export default function SignUp(props: ISignUpProps) {
         // dispatch(storeUser(user))
         const token = await getAccessTokenSilently()
         await axios.post(
-            "http://localhost:8080/users/api/register",
+            "https://studybuddy-production.up.railway.app/users/api/register",
             user,
             {
                 headers: { Authorization: `Bearer ${token}` }

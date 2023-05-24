@@ -26,7 +26,7 @@ export default function SandBox(userExists: IUserExists) {
 
       if (userExists.userExists) {
         const token = await getAccessTokenSilently()
-        socket = io("http://localhost:8080", { transports: ['websocket'], extraHeaders: { Authorization: `Bearer ${token}` }, query: { token: `${token}` } })
+        socket = io("https://studybuddy-production.up.railway.app", { transports: ['websocket'], extraHeaders: { Authorization: `Bearer ${token}` }, query: { token: `${token}` } })
         setConnection(true)
         socket.emit("Ping")
         socket.on("Pong", () => {

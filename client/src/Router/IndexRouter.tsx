@@ -40,7 +40,7 @@ export default function IndexRouter() {
       console.log(isAuthenticated)
       if (isAuthenticated && user) {
         const token = await getAccessTokenSilently()
-        axios.get(`http://localhost:8080/users/authID/check`, {
+        axios.get(`https://studybuddy-production.up.railway.app/users/authID/check`, {
           signal: abort.signal,
           headers: { Authorization: `Bearer ${token}` }
         })

@@ -66,7 +66,7 @@ export default function Search() {
             // TODO: logic of search friend
             const token = await getAccessTokenSilently()
 
-            const res = await axios.get(`http://localhost:8080/users/search/${searchTerm}`, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })
+            const res = await axios.get(`https://studybuddy-production.up.railway.app/users/search/${searchTerm}`, { signal: controller.signal, headers: { Authorization: `Bearer ${token}` } })
             console.log("123")
             if (res.data.length === 0) {
                 setFlag(false)
