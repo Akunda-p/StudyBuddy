@@ -179,7 +179,7 @@ export default function Chat() {
                             </h1>
                         </div>
                         <Paper elevation={24}>
-                            <div id="msgBox" style={{ height: "70vh", overflow: "scroll", padding: 20 }}>
+                            <div id="msgBox" style={{ height: "70vh", overflowY: "scroll", padding: 20 }}>
                                 {hasMore == "more" &&
                                     <div style={{ textAlign: "center" }}>
                                         <Button variant="contained"
