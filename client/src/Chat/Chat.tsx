@@ -209,7 +209,7 @@ export default function Chat() {
                                 ))}
                             </div>
                         </Paper>
-                        <div style={{marginTop: "5vh"}}>
+                        <div style={{marginTop: "3vh"}}>
                         <Paper elevation={24}>
                         <TextField
                             id="msg"
@@ -218,7 +218,7 @@ export default function Chat() {
                             value={msg}
                             label="Type Message Here"
                             fullWidth
-                            sx={{ borderRadius: 1, border: 1 }}
+                            sx={{ borderRadius: 1, border: 1 , padding: 2}}
                         />
                         </Paper>
                         </div>
